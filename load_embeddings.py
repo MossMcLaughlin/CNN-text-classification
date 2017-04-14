@@ -143,6 +143,7 @@ def load_data(filename, vocabulary_size=2000):
     # Words in dataset are now either inside or outside embedding matrix.
     inside_words = sorted(vocab[:vocabulary_size], key=operator.itemgetter(1))
     outside_words = sorted(vocab[vocabulary_size:], key=operator.itemgetter(1))
+    E = create_embedding(len(inside_words),index_to_word)
     print("%d out of %d words appears more than once.\n" % (len(vocab),n_glove_words))
     
     index_to_word = ["<MASK/>", UNKNOWN_TOKEN,SENTENCE_END_TOKEN] + [x[0] for x in inside_words]
@@ -183,4 +184,4 @@ def load_data(filename, vocabulary_size=2000):
     # Build training data
     X_train = np.asarray([[word_to_index[w] for w in sent[:-1]] for sent in tokenized_sentences])
     y_train = np.asarray([[word_to_index[w] for w in sent[1:]] for sent in tokenized_sentences])
-    return X_train,y_train,word_to_index,index_to_word
+    return X_train,y_train,word_to_index,index_to_word,E
