@@ -1,10 +1,10 @@
 # Convolutional Nueral Network for text classification
-4/2017 | Moss McLaughlin
+5/2017 | Moss McLaughlin
 
 # IN PROGRESS
 
-Using a CNN for text classification rather than a RNN, which is the usual standard for NLP.
-
+Using a CNN for text classification.
+Requires: tensorflow,numpy,nltk, google GloVe word embeddings. 
 
  
  For more on loading the pre-trained GloVe word embeddings see <a href = https://github.com/MossMcLaughlin/word_embeddings> this notebook.</a>
